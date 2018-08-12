@@ -1,5 +1,5 @@
 <?php
-session_start();  
+session_start();$a=1;
 require_once("include/common.php");
 require_once(sea_INC."/main.class.php");
 if($cfg_user==0)
