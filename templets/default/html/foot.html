@@ -1,0 +1,21 @@
+﻿    <div class="tabbar visible-xs">
+        <a href="http://{seacms:siteurl}/{seacms:sitepath}" class="item"><i class="icon iconfont icon-home"></i><p class="text">首页</p></a>
+        {seacms:menulist type=1}<a href="[menulist:link]" class="item {if:[menulist:typeid]={seacms:currenttypeid}}active{end if}"><i class="icon iconfont icon-film"></i><p class="text">[menulist:typename] </p></a>{/seacms:menulist}
+        {seacms:menulist type=2}<a href="[menulist:link]" class="item {if:[menulist:typeid]={seacms:currenttypeid}}active{end if}"><i class="icon iconfont icon-show"></i><p class="text">[menulist:typename] </p></a>{/seacms:menulist}
+        {seacms:menulist type=3}<a href="[menulist:link]" class="item {if:[menulist:typeid]={seacms:currenttypeid}}active{end if}"><i class="icon iconfont icon-flag"></i><p class="text">[menulist:typename] </p></a>{/seacms:menulist}
+        {seacms:menulist type=4}<a href="[menulist:link]" class="item {if:[menulist:typeid]={seacms:currenttypeid}}active{end if}"><i class="icon iconfont icon-mallanimation"></i><p class="text">[menulist:typename] </p></a>{/seacms:menulist}
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="hy-footer clearfix">
+                <p class="text-muted hidden-sm hidden-xs">本网站内容收集于互联网，{seacms:sitename}不承担任何由于内容的合法性及健康性所引起的争议和法律责任。<br> 本站永久免费更新最新电影与剧集，欢迎大家使用并推荐朋友。
+</p>
+
+
+                <p class="text-muted">{seacms:copyright}</p>
+            </div>
+        </div>
+    </div>
+    <div class="backup hidden-sm"><i class="iconfont icon-uparrow"></i></div>
+    <span style="display:none">{seacms:sitevisitjs}</span>
+    <script>var swiper=new Swiper('.hy-slide',{pagination:'.swiper-pagination',paginationClickable:true,autoplay:3000,loop:true,nextButton:'.swiper-button-next',prevButton:'.swiper-button-prev',});var swiper=new Swiper('.hy-switch',{pagination:'.swiper-pagination',paginationClickable:true,slidesPerView:5,spaceBetween:0,loop:true,nextButton:'.swiper-button-next',prevButton:'.swiper-button-prev',breakpoints:{1200:{slidesPerView:4,spaceBetween:0},767:{slidesPerView:3,spaceBetween:0}}});$(function(){$(".videopic.lazy").lazyload({effect:"fadeIn"})});$(window).on("scroll",function(){var a=$(this).scrollTop();a>200?$(".backup").addClass("go"):$(".backup").removeClass("go")});$(document).on("click",".backup",function(){$("body,html").animate({scrollTop:0},800)});</script>

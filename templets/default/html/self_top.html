@@ -1,0 +1,49 @@
+<!DOCTYPE html>{seacms:strip}
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="//apps.bdimg.com/">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <title>排行榜</title>
+    <meta name="keywords" content="{seacms:sitenotice}">
+    <meta name="description" content="{seacms:sitenotice}"> {seacms:load head_cascade.html}
+</head>
+
+<body>
+    {seacms:top}
+    <!--main-->
+    <div class="container">
+        <div class="row">{seacms:menulist type=all}
+            <div class="hy-layout clearfix" id="list-[menulist:typeid]">
+                <div class="hy-video-list cleafix">
+                    <div class="head">
+                        <a class="text-muted pull-right" href="/{seacms:sitepath}search.php?searchtype=5&tid=[menulist:typeid]">更多 <i class="icon iconfont icon-right"></i></a>
+                        <h4><i class="icon iconfont icon-top text-color"></i> [menulist:typename]排行榜</h4>
+                    </div>
+                    <div class="item">{seacms:videolist type=[menulist:typeid] num=9 order=time}
+                        <div class="col-md-2 col-sm-3 col-xs-4{if:[videolist:i]>6} visible-sm hidden-md{elseif:[videolist:i]>8} visible-sm hidden-md hidden-sm{end if}"><a class="videopic lazy" href="[videolist:link]" title="[videolist:name]" data-original="[videolist:pic]" style="background: url(images/load.gif) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="score">[videolist:score]</span></a>
+                            <div class="title">
+                                <h5 class="text-overflow"><a href="[videolist:link]">[videolist:name]</a></h5></div>
+                            <div class="subtitle text-muted text-muted text-overflow hidden-xs">[videolist:nolinkactor]</div>
+                        </div>{/seacms:videolist}
+                    </div>
+                </div>
+                <div class="hy-video-text-list hidden-xs clearfix">
+                    <div class="item">
+                        <ul class="clearfix">{seacms:videolist num=12 type=[menulist:typeid] order=time start=9}
+                            <li>
+                                <div class="title text-overflow"><a href="[videolist:link]" title="[videolist:name]"><span class="pull-right"><i class="icon iconfont icon-right text-muted"></i></span>[videolist:name]</a></div>
+                            </li>{/seacms:videolist}
+                        </ul>
+                    </div>
+                </div>
+            </div>{/seacms:menulist}
+        </div>
+    </div>
+    {seacms:foot}
+</body>
+
+{/seacms:strip}</html>

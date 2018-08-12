@@ -1,0 +1,103 @@
+<!DOCTYPE html>{seacms:strip}
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="//apps.bdimg.com/">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <title>{seacms:sitename}</title>
+    <meta name="keywords" content="{seacms:sitenotice}">
+    <meta name="description" content="{seacms:sitenotice}"> {seacms:load head_cascade.html}
+</head>
+
+<body>
+    {seacms:top}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-sm-12 hy-main-content">
+                <div class="hy-layout clearfix">
+                    <div class="hy-video-head"><span class="text-muted pull-right hidden-xs">当前第<span class="text-color">“{searchlist:page}”</span>页</span>
+                        <h4 class="margin-0">搜索到与<span class="text-color">“{seacms:searchword}”</span>相关的<span class="text-color">“{seacms:searchnum}”</span>条结果</h4></div>{seacms:searchlist size=20 order=time}
+                    <div class="hy-video-details active clearfix">
+                        <div class="item clearfix">
+                            <dl class="content">
+                                <dt><a class="videopic" href="[searchlist:link]" style="background: url([searchlist:pic])  no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span></a></dt>
+                                <dd class="clearfix">
+                                    <div class="head">
+                                        <h3><a href="[searchlist:link]">[searchlist:name]</a></h3></div>
+                                    <div class="score">
+                                        <div class="star"><span class="star-cur" id="score"></span></div><span class="branch">[searchlist:score]</span>
+                                        <script type="text/javascript">
+                                        var str = "{searchlist:score}%"
+                                        document.getElementById("score").style.width = (str.replace(".", ""))
+                                        </script>
+                                    </div>
+                                    <ul>
+                                        <li><span class="text-muted">主演：</span>[searchlist:actor]&nbsp;&nbsp;</li>
+                                        <li><span class="text-muted">导演：</span>[searchlist:director]&nbsp;&nbsp;</li>
+                                        <li class="col-md-6 col-sm-6 hidden-xs padding-0"><span class="text-muted">地区：</span>[searchlist:publisharea]</li>
+                                        <li class="col-md-6 col-sm-6 hidden-xs padding-0"><span class="text-muted">类型：</span>[searchlist:typename]</li>
+                                        <li class="col-md-6 hidden-sm hidden-xs padding-0"><span class="text-muted">语言：</span>[searchlist:lang]</li>
+                                        <li class="col-md-6 hidden-sm hidden-xs padding-0"><span class="text-muted">年份：</span>[searchlist:publishtime]</li>
+                                        <li><span class="text-muted">剧情：</span>[searchlist:jqtype]&nbsp;&nbsp;</li>
+                                    </ul>
+                                    <div class="block"><a class="text-muted" href="[searchlist:link]">查看详情 <i class="icon iconfont icon-right"></i> </a></div>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>{/seacms:searchlist}
+                    <div class="hy-page clearfix">
+                        <ul class="cleafix">
+                            <li><a href="{searchlist:firstlink}">首页</a></li>
+                            <li><a href="{searchlist:backlink}">上一页</a></li>
+                            {searchlist:pagenumber len=6} {if:{searchlist:page}
+                            <>[pagenumber:page]}
+                                <li class="hidden-xs "><a href="[pagenumber:link]">[pagenumber:page]</a></li>
+                                {else}
+                                <li class="hidden-xs "><a href="[pagenumber:link]">[pagenumber:page]</a></li>
+                                {end if} {/searchlist:pagenumber}
+                                <li><a href="{searchlist:nextlink}">下一页</a></li>
+                                <li><a href="{searchlist:lastlink}">尾页</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-12 hy-main-side hidden-sm hidden-xs">
+                <div class="hy-layout clearfix">
+                    <div class="hy-video-ranking side clearfix">
+                        <div class="head"><a class="text-muted pull-right" href="/{seacms:sitepath}top.html#list-1">更多 <i class="icon iconfont icon-right"></i></a>
+                            <h4><i class="icon iconfont icon-top text-color"></i> 电影排行榜</h4></div>
+                        <div class="item">
+                            <ul class="clearfix">{seacms:videolist num=9 type=1 order=monthhit}
+                                <li class="text-overflow "><span class="pull-right text-color">[videolist:score]</span><a href="[videolist:link]" title="[videolist:name]"><em class="number {if:[videolist:i]<4} active{end if}">[videolist:i]</em>[videolist:name]</a></li>{/seacms:videolist}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="hy-video-ranking side clearfix">
+                        <div class="head"><a class="text-muted pull-right" href="/{seacms:sitepath}top.html#list-2">更多 <i class="icon iconfont icon-right"></i></a>
+                            <h4><i class="icon iconfont icon-top text-color"></i> 电视剧排行榜</h4></div>
+                        <div class="item">
+                            <ul class="clearfix">{seacms:videolist num=9 type=2 order=monthhit}
+                                <li class="text-overflow "><span class="pull-right text-color">[videolist:score]</span><a href="[videolist:link]" title="[videolist:name]"><em class="number {if:[videolist:i]<4} active{end if}">[videolist:i]</em>[videolist:name]</a></li>{/seacms:videolist}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="hy-video-list side clearfix">
+                        <div class="head"><a class="pull-right text-muted" href="{seacms:topiclink}">更多 <i class="icon iconfont icon-right"></i></a>
+                            <h4>推荐专题</h4></div>
+                        <div class="item">
+                            <ul class="clearfix">{seacms:topiclist num=3 order=time}
+                                <li><a class="videopic lazy" href="[topiclist:link]" title="[topiclist:name]" data-original="[topiclist:pic]" style="padding-top: 50%; background: url(images/load_w.gif) no-repeat; background-position:50% 50%; background-size: cover;"><span class="play hidden-xs"></span><span class="note textbg text-overflow">[topiclist:name]</span></a></li>{/seacms:topiclist}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {seacms:foot}
+</body>
+
+{/seacms:strip}</html>

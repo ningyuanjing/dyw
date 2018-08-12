@@ -1,0 +1,74 @@
+<!DOCTYPE html>{seacms:strip}
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="//apps.bdimg.com/">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <title>最近更新 - {seacms:sitename}</title>
+    <meta name="keywords" content="{seacms:sitenotice}">
+    <meta name="description" content="{seacms:sitenotice}"> {seacms:load head_cascade.html}
+</head>
+
+<body>
+    {seacms:top}
+    <!--main-->
+    <div class="container">
+        <div class="row">
+            <div class="hy-layout clearfix">
+                <div class="hy-switch-tabs active">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#list" data-toggle="tab">最近更新</a></li>
+                        <li><a href="#list1" data-toggle="tab">电影</a></li>
+                        <li><a href="#list2" data-toggle="tab">电视剧</a></li>
+                        <li><a href="#list3" data-toggle="tab">综艺</a></li>
+                        <li><a href="#list4" data-toggle="tab">动漫</a></li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="list">
+                        <div class="hy-video-list cleafix">
+                            <div class="item">{seacms:videolist num=60 order=time}
+                                <div class="col-md-2 col-sm-3 col-xs-4">
+                                    <a class="videopic lazy" href="[videolist:link]" title="[videolist:name]" data-original="[videolist:pic]" style=" background: url(images/load.gif) no-repeat; background-position:50% 50%; background-size: cover;">
+                                        <span class="play hidden-xs"></span>
+                                        <span class="score">[videolist:score]</span>
+                                    </a>
+                                    <div class="title">
+                                        <h5 class="text-center text-overflow"><a href="[videolist:link]">[videolist:name]</a></h5>
+                                    </div>
+                                    <div class="subtitle text-muted text-overflow text-center">
+                                        [videolist:time]
+                                    </div>
+                                </div>{/seacms:videolist}
+                            </div>
+                        </div>
+                    </div>{seacms:menulist type=1,2,3,4}
+                    <div class="tab-pane fade in" id="list[menulist:typeid]">
+                        <div class="hy-video-list cleafix">
+                            <div class="item">{seacms:videolist type=[menulist:typeid] num=60 order=time}
+                                <div class="col-md-2 col-sm-3 col-xs-4">
+                                    <a class="videopic" href="[videolist:link]" title="[videolist:name]" style=" background: url([videolist:pic]) no-repeat; background-position:50% 50%; background-size: cover;">
+                                        <span class="play hidden-xs"></span>
+                                        <span class="score">[videolist:score]</span>
+                                    </a>
+                                    <div class="title">
+                                        <h5 class="text-center text-overflow"><a href="[videolist:link]">[videolist:name]</a></h5>
+                                    </div>
+                                    <div class="subtitle text-muted text-overflow text-center">
+                                        [videolist:time]
+                                    </div>
+                                </div>{/seacms:videolist}
+                            </div>
+                        </div>
+                    </div>{/seacms:menulist}
+                </div>
+            </div>
+        </div>
+    </div>
+    {seacms:foot}
+</body>
+
+{/seacms:strip}</html>
